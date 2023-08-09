@@ -152,4 +152,5 @@ run_experiment(hyperparameters=hyperparameters, epoch=30)
 ```
 
 Finally we define and initialize our width and resolution multiplier arrays and pass them to the run_experiment() method. Below are the metrics collected for the entire experiment with each model running for 30 epochs.
+![Image Alt Text](experiment_results.png)
 
