@@ -189,8 +189,8 @@ Model Accuracies - 1
 ![Model Metrics](experiment_results.png)
 
 Model Accuracies - 2
-![Accuracy Vs. Resolution](accuracy_vs_resolution.png)
+![Accuracy Vs. Resolution](accuracy_vs_resolution.jpeg)
 
 Learning Curve (0.75-MobileNet-224)
-![Learning Curve](learning_curve.png)
+![Learning Curve](learning_curve.jpeg)
 
