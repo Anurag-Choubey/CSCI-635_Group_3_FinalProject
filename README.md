@@ -1,4 +1,4 @@
-The following is an implementation of MobileNets for image classiification task. 
+The following is an implementation of MobileNets for image classification task. 
 
 ```python
 #SECTION 1
