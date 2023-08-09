@@ -1,3 +1,5 @@
+The following is an implementation of MobileNets for image classiification task. 
+
 ```python
 #SECTION 1
 import time
