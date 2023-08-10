@@ -1,5 +1,11 @@
 The following is an implementation of MobileNets for image classification task. 
 
+System Requirements:
+>> TensorFlow https://www.tensorflow.org/
+>> Python --version > 3
+>> Make sure the system is connected to the internet, so as to download the
+   dataset
+
 ```python
 #SECTION 1
 import time
@@ -99,24 +105,19 @@ def prepare_for_training(ds_train,ds_val, ds_test, batch_size=32, image_size=(22
 
 ```python
 #SECTION 5
-def run_experiment(hyperparameters, epoch, get_summary=False, freeze_conv=True):
+def run_experiment(hyperparameters, epoch, get_summary=False, freeze_conv=True, lr = 0.001, beta_1 = 0.9,beta_2 = 0.995 ):
     start = time.time()
     for each in hyperparameters:
       alpha_, resolution = each
-
       image_size_ = (resolution, resolution)
 
       print(f"Running experiment with alpha = {alpha_} and resolution = {resolution}")
       model = tf.keras.applications.MobileNet(alpha=alpha_, weights='imagenet', include_top=True,
                                               input_shape=(resolution, resolution,3))
-
       if freeze_conv:
         for layer in model.layers[:-5]:
             layer.trainable = False
 
-      lr = 0.001
-      beta_1 = 0.9
-      beta_2 = 0.995
       epsilon = 1e-08
       optimizer = Adam(learning_rate=lr, beta_1=beta_1, beta_2=beta_2, epsilon=epsilon)
 
@@ -129,7 +130,6 @@ def run_experiment(hyperparameters, epoch, get_summary=False, freeze_conv=True):
       lr_printer = LearningRatePrinter()
 
       train_set,val_set,test_set = prepare_for_training(ds_train,ds_val, ds_test, batch_size=32, image_size=image_size_)
-
       history = model.fit(train_set,epochs=epoch, batch_size=32, validation_data=val_set,callbacks=[lr_printer])
 
       if get_summary:
@@ -148,8 +148,10 @@ def run_experiment(hyperparameters, epoch, get_summary=False, freeze_conv=True):
       plt.ylabel('Accuracy')
       plt.legend()
       plt.show()
+
       print("_________________________________________________________________________________________________________________________")
       print("_________________________________________________________________________________________________________________________")
+
       end = time.time()
       print(f"Total Time Taken for ALL MODELS: {end-start} seconds")
 ```
