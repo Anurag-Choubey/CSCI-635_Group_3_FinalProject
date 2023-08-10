@@ -107,7 +107,7 @@ def prepare_for_training(ds_train,ds_val, ds_test, batch_size=32, image_size=(22
 
 ```python
 #SECTION 5
-def run_experiment(hyperparameters, epoch, get_summary=False, freeze_conv=True, lr = 0.001, beta_1 = 0.9,beta_2 = 0.995 ):
+def run_experiment(hyperparameters, epoch, get_summary=False, freeze_conv=True, lr=0.001, beta_1=0.9, beta_2=0.995):
     start = time.time()
     for each in hyperparameters:
       alpha_, resolution = each
@@ -192,11 +192,16 @@ Finally we define and initialize our width and resolution multiplier arrays and 
 
 
 Model Accuracies - 1
+
 ![Model Metrics](experiment_results.png)
 
+
 Model Accuracies - 2
+
 ![Accuracy Vs. Resolution](accuracy_vs_resolution.jpeg)
 
+
 Learning Curve (0.75-MobileNet-224)
+
 ![Learning Curve](learning_curve.jpeg)
 
