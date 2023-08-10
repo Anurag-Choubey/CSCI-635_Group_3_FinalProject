@@ -2,7 +2,9 @@ The following is an implementation of MobileNets for image classification task.
 
 System Requirements:
 >> TensorFlow https://www.tensorflow.org/
+
 >> Python --version > 3
+
 >> Make sure the system is connected to the internet, so as to download the
    dataset
 
