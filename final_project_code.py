@@ -128,8 +128,7 @@ def prepare_for_training(ds_train,ds_val, ds_test, batch_size=32, image_size=(22
       which result in smoother trajectories when optimization takes place.
 """
 #SECTION 5
-def run_experiment(hyperparameters, epoch, get_summary=False, freeze_conv=True,
-                   lr=0.001, beta_1=0.9, beta_2=0.995):
+def run_experiment(hyperparameters, epoch, get_summary=False, freeze_conv=True, lr=0.001, beta_1=0.9, beta_2=0.995):
     start = time.time()
     for each in hyperparameters:
       alpha_, resolution = each
